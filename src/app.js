@@ -6,6 +6,7 @@ const forecast = require('./utils/forecast')
 const request = require('request')
 
 const app = express()
+const port = process.env.PORT  || 3000
 
 //  define path for Express config
 const publicDirectoryPath=path.join(__dirname,'../public')
@@ -44,7 +45,7 @@ app.get('/help',(req,res)=>{
 })
 
 
-app.get('/weather',(req,res)=>{
+app.get('/weather',(req,res)=>{ 
     if(!req.query.address){
         return res.send({
             ERROR:'No Address entered'
@@ -107,7 +108,7 @@ app.get('*',(req,res)=>{
 })
 
 
-app.listen(3000,()=>{
-    console.log('listing on Port 3000')
+app.listen(port ,()=>{
+    console.log('listing on Port ' + port)
 
 })

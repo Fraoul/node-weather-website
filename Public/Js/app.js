@@ -17,7 +17,7 @@ weatherForm.addEventListener('submit',(e) => {
     p1.textContent = 'Loading Message'
     p2.textContent = ' '
 
-    fetch('http://localhost:3000/weather?address='+location).then((response) => {
+    fetch('/weather?address='+location).then((response) => {
         response.json().then((data) => {
             if (data.error){
                 p1.textContent = (data.error)             // was console.log changed it to be printed on the browser
